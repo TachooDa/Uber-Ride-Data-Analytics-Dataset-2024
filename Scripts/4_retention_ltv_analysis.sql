@@ -87,3 +87,25 @@ GROUP BY
 ORDER BY
     cohort_year,
     customer_status DESC;
+
+
+-- Analisis cohort
+WITH first_order AS (
+SELECT
+	customer_id,
+	date,
+	booking_value,
+	EXTRACT(YEAR FROM date) AS cohort_year,
+	min(date) OVER (PARTITION BY customer_id) AS first_order_date
+FROM uber_books_staging	
+)
+SELECT 
+	cohort_year,
+	first_order_date ,
+	sum(booking_value) AS total_revenue,
+	count(DISTINCT customer_id) AS total_customer,
+	sum(booking_value) / count(DISTINCT customer_id) AS customer_revenue
+FROM first_order 
+WHERE date = first_order_date
+GROUP BY cohort_year, first_order_date
+ORDER BY cohort_year ;

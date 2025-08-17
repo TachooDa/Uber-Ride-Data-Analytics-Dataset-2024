@@ -84,16 +84,14 @@ Kita akan meng-eksplor mulai dari demand, cancel, rating driver dan customer, re
 
 ## ![vehicle rate](images/2_vehicle_rates.png)
 
-_Uber XL mencatat tingkat keberhasilan (success rate) terbaik sebesar 62,55% dari total 4.449 pesanan, dengan 2.783 pesanan berhasil diselesaikan. Sementara itu, di posisi terendah terdapat Go Sedan dengan tingkat keberhasilan hanya 61,44% dari 27.141 pesanan, di mana 16.666 di antaranya berhasil diselesaikan._
+## _Uber XL mencatat tingkat keberhasilan (success rate) terbaik sebesar 62,55% dari total 4.449 pesanan, dengan 2.783 pesanan berhasil diselesaikan. Sementara itu, di posisi terendah terdapat Go Sedan dengan tingkat keberhasilan hanya 61,44% dari 27.141 pesanan, di mana 16.666 di antaranya berhasil diselesaikan._
 
-# 👨 Customer and 👨‍✈️ Driver ratings distribution
+# 👨 Customer and 🚗 Driver ratings distribution
 
 ### 1. 👨 Customer ratings distribution
 
 - Urut berdasarkan customer rating dari yg terendah ke yang tertinggi range rating (3⭐- 5⭐)
 - Hitung seluruh customer rating per rating yg diberikan customer
-
----
 
 ## ![customer ratings](images/4_customer_ratings.png)
 
@@ -108,12 +106,12 @@ _Uber XL mencatat tingkat keberhasilan (success rate) terbaik sebesar 62,55% dar
 1.  Sebagian besar customer memberikan rating yang tinggi, ini berarti untuk layanan keseluruhan memenuhi atau bahkan melampaui ekspektasi.
 2.  Adanya indikator ketidak puasan terhadap layanan dan berpotensi untuk tidak menggunakan Uber lagi, ini dapat menjadi indikasi resiko churn untuk customer yg memberikan rating di bawah 4.0.
 
-### 👨‍✈️ Driver ratings distribution
+---
+
+### 🚗 Driver ratings distribution
 
 - Urut berdasarkan driver ratings dari yg terendah ke yang tertinggi diman range rating berada pada (3⭐- 5⭐).
 - Hitung driver ratings untuk melihat distribution rating yang diberikan customer terhadap driver
-
----
 
 ## ![driver rating](images/3_driver_ratings.png)
 
@@ -127,10 +125,73 @@ _Uber XL mencatat tingkat keberhasilan (success rate) terbaik sebesar 62,55% dar
 - Distribusi rating diatas 4.0 merupakan sinyal positif untuk model bisnis uber dalam menjaga kualitas layanan.
 - Sebaran rating dibawah 4.0 dapat menjadi indikator untuk driver yang berisiko, pada kategori ini uber dapat mengidentifikasi masalah seperti perilaku driver, kondisi kendaraan, atau efesiensi rute yng dapat mencegah driver keluar dari platform (driver churn), yang dapat berdampak buruk untuk pengalaman pelanggan.
 
-# Customer Segmentation Analysis
+---
+
+# 🧑 Customer Segmentation Analysis
 
 - Kategorikan customer berdasarkan total lifetime value (ltv.)
 - Berikan rank value untuk tingkat customer mulai dari low-high value segments.
 - Hitung key metrict: total revenu
 
-![c_segment](images/5_customer_segmentation.png)
+---
+
+## ![c_segment](images/5_customer_segmentation.png)
+
+**📈 Key Findings:**
+
+- High-value segment (25% dari customer) memberikan 50.9% dari total revenue sebesar $26.3 M dengan total customer sebanyak 25.284
+- Mid-Value segment (50% dari customer) memberikan 42.1% dari total revenue $21.8 M dengan total customer sebanyak 50.876.
+- Low-Value segment (25% dari customer) memberikan 7.1% dari total revenue yg diberikan sebesar $3.6 M dengan total customer sebanyak 25.290
+
+**⚖ Business Insight:**
+
+- Tawarkan program customer premium untuk 25.284 (50.9% revenue) customer VIP, karena kehilangan satu customer di segmen ini dapat berdapampak signifikan terhadap revenue.
+- create jalur untuk upgrade melalui promosi yang di perbaharui,dengan potensi pendapatan sebesar $21.8M-$26.3M.
+- Rencanakan dan rancang kampanye dengan re-engangement dan promosi sensitif harga untuk meningkatkan frequency order atau pesanan dengan tujuan untuk mendorong customer naik ke segment mid-value.
+
+---
+
+# 📊 Cohort Analysis
+
+- Tracked revenue dan customer count per cohort.
+- Cohort di group berdasarkan tahun pertama first order.
+- Analisa customer retention di cohort level
+
+![cohort](images/6_cohort.png)
+
+**📈 Key Findings:**
+
+- Dari awal 2024 sampai akhir 2024 grafik tidak memperlihatkan tren meningkat atau menurun secara signifikan, melainkan cenderung stabil dengan variasi periodik.
+- rata-rata revenue percustomer cenderung berada di kisaran 280-450 dengan beberapa lonjakan hingga > 500. Ini berarti revenue dari setiap customer relatif konsisten sepanjang tahun 2024.
+
+**💡 Business Insight:**
+
+- Karena revenue per-customer relatif stabi, strategi untuk meningkatkan repeat order bisa lebih efektif.
+- Revenue rata-rata customer cukup stabil -> artinya peluang meningkatkan basket size (nilai transaksi per order) masih besar (rekomendasi layanan pelanggan, promo diskon harga jalan atau penawaran personalisasi customer).
+
+# 🧑 Customer Retention
+
+- Identifikasi customer dalam kondisi risk churning.
+- Analisa pattern order terakhir.
+- Calculated customer dalam specific metrics.
+
+![retention](images/7_retention.png)
+
+**📈 key finding:**
+
+- **Distribusi Status Pelanggan:** Basis pelanggan untuk kelompok 2024 terbagi hampir merata antara pelanggan Aktif dan Pelanggan yang Berhenti, dengan 50,54% pelanggan aktif dan 49,46% pelanggan yang berhenti.
+- **Tingkat Churn yang Tinggi:** Tingkat churn mencapai hampir 50%. Hal ini menunjukkan bahwa hampir setengah dari pelanggan yang melakukan pembelian pertama mereka pada tahun 2024 tidak melakukan pembelian lagi dalam enam bulan menjelang akhir tahun.
+
+**💡 Business Insight:**
+
+- Fokus utama perlu diarahkan pada retensi pelanggan, karena menjaga pelanggan lama lebih hemat biaya dibanding akuisisi baru.
+- Lakukan analisis penyebab churn (misalnya kualitas layanan, harga, kepuasan, atau kompetitor) untuk menemukan akar masalah.
+- Terapkan kampanye reaktivasi bagi hampir 50% pelanggan churn, melalui promo khusus, penawaran personal, atau peluncuran produk baru.
+
+---
+
+# 💻 Technical Details
+
+- Database: PostgreSQL
+- Analysis Tools: PostgreSQL, DBeaver, PGadmin, VSCode
+- Visualization: ChatGPT and Gemini
