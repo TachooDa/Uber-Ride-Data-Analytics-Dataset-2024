@@ -2,7 +2,7 @@
 
 ## Data set ini mencakup total 148.767K pemesanan di berbagai jenis kendaraan dan memberikan gambaran lengkap tentang operasi berbagi tumpangan, termasuk perjalanan yang berhasil, pembatalan, perilaku pelanggan, dan metrik keuangan.
 
-## ![dashboard](images/pb_2.png)
+## ![dashboard](images/pb_1.png)
 
 # Overview
 
