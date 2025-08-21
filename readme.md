@@ -1,6 +1,8 @@
 # 🚕 Uber ride data deep-dive (data untuk tahun 2024) deep-dive
 
-Data set ini mencakup total 148.767K pemesanan di berbagai jenis kendaraan dan memberikan gambaran lengkap tentang operasi berbagi tumpangan, termasuk perjalanan yang berhasil, pembatalan, perilaku pelanggan, dan metrik keuangan.
+## Data set ini mencakup total 148.767K pemesanan di berbagai jenis kendaraan dan memberikan gambaran lengkap tentang operasi berbagi tumpangan, termasuk perjalanan yang berhasil, pembatalan, perilaku pelanggan, dan metrik keuangan.
+
+## ![dashboard](images/pb_2.png)
 
 # Overview
 
