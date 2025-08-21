@@ -86,7 +86,7 @@ Kita akan meng-eksplor mulai dari demand, cancel, rating driver dan customer, re
 
 ## ![vehicle rate](images/2_vehicle_rates.png)
 
-## _Uber XL mencatat tingkat keberhasilan (success rate) terbaik sebesar 62,55% dari total 4.449 pesanan, dengan 2.783 pesanan berhasil diselesaikan. Sementara itu, di posisi terendah terdapat Go Sedan dengan tingkat keberhasilan hanya 61,44% dari 27.141 pesanan, di mana 16.666 di antaranya berhasil diselesaikan._
+_Uber XL mencatat tingkat keberhasilan (success rate) terbaik sebesar 62,55% dari total 4.449 pesanan, dengan 2.783 pesanan berhasil diselesaikan. Sementara itu, di posisi terendah terdapat Go Sedan dengan tingkat keberhasilan hanya 61,44% dari 27.141 pesanan, di mana 16.666 di antaranya berhasil diselesaikan._
 
 # 👨 Customer and 🚗 Driver ratings distribution
 
