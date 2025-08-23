@@ -14,10 +14,10 @@ SELECT
 	vehicle_type,
 	sum(booking_value) AS revenue,
 	count(*) FILTER(WHERE booking_status = 'Completed')::decimal AS complete_ride,
-	round((
+	concat(round((
 		count(*) FILTER(WHERE booking_status = 'Completed')::decimal /
 	count(*)::decimal
-	)* 100,2) AS success_rate
+	)* 100,2), '%') AS success_rate
 FROM
 	uber_books_staging
 GROUP BY vehicle_type
@@ -28,13 +28,13 @@ SELECT
 	WHERE
 		booking_status = 'Incomplete'
 	)::decimal AS incomplete_ride,
-	(
+	concat(round((
 		count(*) FILTER (
 		WHERE
 			booking_status = 'Incomplete'
 		)::decimal /
 		count(*)::decimal
-	) * 100 AS failed_rate
+	) * 100,2), '%') AS failed_rate
 FROM
 	uber_books_staging;
 
@@ -50,7 +50,7 @@ SELECT
             )
     ) AS cancelled_bookings,
     COUNT(DISTINCT booking_id) AS total_bookings,
-    ROUND(
+    concat(ROUND(
         COUNT(*) FILTER (
             WHERE
                 booking_status IN (
@@ -59,8 +59,8 @@ SELECT
                     'Cancelled by Driver',
                     'Cancelled by Customer'
                 )
-        )::DECIMAL * 100 / COUNT(booking_id), 2
-    ) AS cancellation_rate_percent
+        )::DECIMAL * 100 / COUNT(booking_id), 0
+    ), '%') AS cancellation_rate_percent
 FROM
     uber_books_staging;
 -- customer cancellation or cancel by customer
@@ -69,10 +69,10 @@ SELECT
 	WHERE
 		booking_status = 'Cancelled by Customer'
 	)::DECIMAL AS customer_cancellation,
-	round(
+	concat(round(
     	(count(*) FILTER(WHERE booking_status = 'Cancelled by Customer')::decimal /
     	count(*)::decimal) * 100, 2
-    ) AS customer_cancel_rates
+    ), '%') AS customer_cancel_rates
 FROM
 	uber_books_staging;
 -- no driver found percentage
@@ -148,10 +148,10 @@ SELECT
 			round(sum(ride_distance::NUMERIC), 0) AS total_distance_covered,
 	round(avg(driver_ratings::NUMERIC), 2) AS avg_driver_ratings,
 	round(avg(customer_rating::NUMERIC), 2) AS avg_customer_ratings,
-	round(
+	concat(round(
 		(count(*) FILTER (WHERE booking_status = 'Completed')::decimal
 		/ count(*)::decimal
-	)* 100, 2) AS rate_pemesanan_sukses
+	)* 100, 2),'%')AS rate_pemesanan_sukses
 FROM
 	fleet_coverage
 GROUP BY
@@ -171,7 +171,7 @@ WITH total AS (
 SELECT
 	booking_status,
 	COUNT(*)::decimal AS total_bookings,
-	ROUND((COUNT(*)::decimal / total.total_bookings) * 100, 2) AS percentage_status
+	concat(ROUND((COUNT(*)::decimal / total.total_bookings) * 100, 0),'%') AS percentage_status
 FROM
 	uber_books_staging,
 	total
@@ -185,9 +185,9 @@ ORDER BY
 SELECT
     booking_category,
     COUNT(booking_id) AS total_bookings_by_category,
-    ROUND(
-        COUNT(booking_id)::DECIMAL * 100 / (SELECT COUNT(*) FROM uber_books_staging), 2
-    ) AS percentage_of_total
+    concat(ROUND(
+        COUNT(booking_id)::DECIMAL * 100 / (SELECT COUNT(*) FROM uber_books_staging), 0
+    ),'%') AS percentage_of_total
 FROM (
     SELECT
         booking_id,

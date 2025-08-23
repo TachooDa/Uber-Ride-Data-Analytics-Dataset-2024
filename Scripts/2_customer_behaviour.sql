@@ -76,7 +76,7 @@ SELECT
 	drop_location,
 	total_bookings ,	
 	success_rides,
-	round((success_rides::decimal / total_bookings  )* 100, 2) AS contribution_percent
+	concat(round((success_rides::decimal / total_bookings  )* 100, 2), '%') AS contribution_percent
 FROM
 	drop_location_stats
 )
@@ -100,7 +100,7 @@ total_success AS (
 		pickup_location,
 		total_bookings,
 		success_ride,
-		round((success_ride::decimal / total_bookings )* 100, 2) AS success_rate
+		concat(round((success_ride::decimal / total_bookings )* 100, 2),'%') AS success_rate
 	FROM
 		pickup_stats
 )
@@ -140,11 +140,11 @@ GROUP BY
 SELECT
 	reason_for_cancelling_by_customer,
 	count(DISTINCT booking_id) AS total_cancel,
-	round(
+	concat(round(
 		count(DISTINCT booking_id)* 100 /
 		sum(count(DISTINCT booking_id)) OVER(),
 		2
-	) AS cancel_percentage
+	),'%') AS cancel_percentage
 FROM
 	uber_books_staging
 WHERE
@@ -170,10 +170,10 @@ SELECT
 	driver_cancellation_reason,
 	total_customer,
 	total_cancel,
-	round(
+	concat(round(
 		total_cancel * 100 /
 		sum(total_cancel) OVER(), 2
-	) AS cancel_in_percent_by_customer
+	),'%') AS cancel_in_percent_by_customer
 FROM
 	cancel_counts
 ORDER BY
@@ -193,10 +193,10 @@ WITH percent_count AS (
 SELECT 
 	driver_cancellation_reason,
 	total_cancel,
-	round(
+	concat(round(
 		total_cancel * 100.0 /
 		sum(total_cancel) OVER() , 2
-	) AS cancel_in_percent_by_driver
+	),'%') AS cancel_in_percent_by_driver
 FROM
 	percent_count
 ORDER BY
@@ -219,10 +219,10 @@ SELECT
 	incomplete_rides_reason,
 	total_customer,
 	total_incomplete_ride,
-	round(
+	concat(round(
 		total_incomplete_ride * 100.0 /
 		sum(total_incomplete_ride) OVER(), 2
-	) AS incomplete_in_percent
+	),'%') AS incomplete_in_percent
 FROM
 	incomplete_counts
 ORDER BY

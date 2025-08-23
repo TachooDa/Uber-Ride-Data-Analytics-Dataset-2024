@@ -76,9 +76,9 @@ SELECT
     cohort_year,
     customer_status,
     COUNT(customer_id) AS jumlah_customer,
-    ROUND(
+    concat(ROUND(
         COUNT(customer_id)::DECIMAL * 100 / SUM(COUNT(customer_id)) OVER (PARTITION BY cohort_year), 2
-    ) AS percentage
+    ),'%') AS percentage
 FROM customer_status
 WHERE cohort_year IS NOT NULL
 GROUP BY
@@ -109,3 +109,40 @@ FROM first_order
 WHERE date = first_order_date
 GROUP BY cohort_year, first_order_date
 ORDER BY cohort_year ;
+
+-- tipe kendaraan apa yang berkontribusi paling banyak  untuk total pesanann
+WITH category_order AS (
+SELECT 
+	vehicle_type,
+	count(DISTINCT booking_id ) AS total_order
+FROM uber_books_staging
+GROUP BY vehicle_type
+)
+SELECT
+	vehicle_type,
+	total_order,
+	sum(total_order) OVER() AS overall_order,
+	concat(round((total_order / sum(total_order) OVER())*100,2),'%') AS percentage_of_total_order
+FROM category_order
+ORDER BY total_order DESC;
+
+-- 1. change over time analysis
+WITH percent_order AS (
+SELECT 
+	EXTRACT(YEAR FROM date) AS order_year,
+	extract(month FROM date) AS order_month,
+	count(booking_id) AS total_order,
+	count(DISTINCT customer_id)  AS total_customer
+FROM uber_books_staging 
+GROUP BY EXTRACT(YEAR FROM date),extract(month FROM date)
+)
+SELECT
+	order_year,
+	order_month,
+	total_customer,
+	total_order,
+	concat(round((total_order::numeric / total_customer)*100, 2),'%') AS percent_order
+FROM percent_order
+ORDER BY order_month;
+
+
