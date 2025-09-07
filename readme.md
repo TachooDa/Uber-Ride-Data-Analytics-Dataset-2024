@@ -182,13 +182,13 @@ _Uber XL mencatat tingkat keberhasilan (success rate) terbaik sebesar 62,55% dar
 **📈 key finding:**
 
 - **Distribusi Status Pelanggan:** Basis pelanggan untuk kelompok 2024 terbagi hampir merata antara pelanggan Aktif dan Pelanggan yang Berhenti, dengan 50,54% pelanggan aktif dan 49,46% pelanggan yang berhenti.
-- **Tingkat Churn yang Tinggi:** Tingkat churn mencapai hampir 50%. Hal ini menunjukkan bahwa hampir setengah dari pelanggan yang melakukan pembelian pertama mereka pada tahun 2024 tidak melakukan pembelian lagi dalam enam bulan menjelang akhir tahun.
+- **Tingkat Churn yang Tinggi:** Tingkat churn mencapai hampir 50%. Hal ini menunjukkan bahwa hampir setengah dari pelanggan yang melakukan pemesanan pertama mereka pada tahun 2024 tidak melakukan pemesanan lagi dalam enam bulan menjelang akhir tahun.
 
 **💡 Business Insight:**
 
 - Fokus utama perlu diarahkan pada retensi pelanggan, karena menjaga pelanggan lama lebih hemat biaya dibanding akuisisi baru.
 - Lakukan analisis penyebab churn (misalnya kualitas layanan, harga, kepuasan, atau kompetitor) untuk menemukan akar masalah.
-- Terapkan kampanye reaktivasi bagi hampir 50% pelanggan churn, melalui promo khusus, penawaran personal, atau peluncuran produk baru.
+- Terapkan kampanye reaktivasi bagi hampir 50% pelanggan churn, melalui promo khusus, penawaran personal, atau peluncuran promo serta keuntungan  bagi customer yg terindikasi churn.
 
 ---
 
