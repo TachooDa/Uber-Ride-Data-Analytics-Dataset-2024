@@ -63,6 +63,7 @@ SELECT
     ), '%') AS cancellation_rate_percent
 FROM
     uber_books_staging;
+
 -- customer cancellation or cancel by customer
 SELECT
 	COUNT(*) FILTER (
@@ -75,6 +76,7 @@ SELECT
     ), '%') AS customer_cancel_rates
 FROM
 	uber_books_staging;
+	
 -- no driver found percentage
 SELECT
 	COUNT(*) FILTER (
