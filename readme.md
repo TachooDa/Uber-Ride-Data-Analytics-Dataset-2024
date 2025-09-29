@@ -4,10 +4,24 @@
 
 ## ![dashboard](images/pb_1.png)
 
-# Overview
+## 🎯 Objective
 
-**End-to-end analisis dengan bisnis storytelling.**
-Kita akan meng-eksplor mulai dari demand, cancel, rating driver dan customer, revenue, dan operation. **Note:** Semua chart di jelaskan dengan **Bahasa Indonesia**
+- Kurangi tingkat churn pelanggan (saat ini 49,46%)
+- Tingkatkan tingkat keberhasilan perjalanan (saat ini 62%)
+- Tingkatkan pendapatan dari segmen bernilai tinggi
+
+## 📌 Executive Summary
+
+- Pendapatan total: Rp51,8 juta dari 148.000 perjalanan
+- Tingkat keberhasilan 62%, 37.500 pembatalan (18% oleh pengemudi)
+- Tingkat churn 50% di antara kelompok 2024
+- **Rekomendasi Utama**: Program insentif pengemudi, tingkatan loyalitas pelanggan, kampanye promosi reaktif
+
+## 🔍 Key Business Problems Identified
+
+1. Driver cancellations are the largest leak in the conversion funnel
+2. Nearly half of new customers churn within 6 months
+3. High-value segments are under-engaged
 
 ## 📋 Data Schema
 
@@ -188,7 +202,7 @@ _Uber XL mencatat tingkat keberhasilan (success rate) terbaik sebesar 62,55% dar
 
 - Fokus utama perlu diarahkan pada retensi pelanggan, karena menjaga pelanggan lama lebih hemat biaya dibanding akuisisi baru.
 - Lakukan analisis penyebab churn (misalnya kualitas layanan, harga, kepuasan, atau kompetitor) untuk menemukan akar masalah.
-- Terapkan kampanye reaktivasi bagi hampir 50% pelanggan churn, melalui promo khusus, penawaran personal, atau peluncuran promo serta keuntungan  bagi customer yg terindikasi churn.
+- Terapkan kampanye reaktivasi bagi hampir 50% pelanggan churn, melalui promo khusus, penawaran personal, atau peluncuran promo serta keuntungan bagi customer yg terindikasi churn.
 
 ---
 
